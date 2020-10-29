@@ -1,6 +1,6 @@
 # Crack LeetCode
 
-Provide analysis and summary for **valueable** LeetCode problems
+Provide analysis and summary for **valuable** LeetCode problems
 
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
 ![GitHub issues](https://img.shields.io/github/issues/TianQ20/Crack-LeetCode)
