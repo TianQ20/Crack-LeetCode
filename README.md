@@ -23,3 +23,5 @@ Please check this [template](https://github.com/TianQ20/Crack-LeetCode/blob/main
 | [849. Maximize Distance to Closest Person](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Array/849.md) | focus on one pass solution | Array |
 | [611. Valid Triangle Number](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Array/611.%20Valid%20Triangle%20Number.md) | O(N^2) | Array |
 | [1396. Design Underground System](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/SystemDesign/1396.%20Design%20Underground%20System.md) | Neat and Efficient Design | System/OOD Design |
+| [1102. Path With Maximum Minimum Value](https://github.com/TianQ20/Crack-LeetCode/blob/main/Advanced_DataStructure/Dijkstra.md) | Dijkstra | BFS |
+| [1631. Path With Minimum Effort](https://github.com/TianQ20/Crack-LeetCode/blob/main/Advanced_DataStructure/Dijkstra.md) | Dijkstra | BFS |
