@@ -3,6 +3,7 @@
 Provide analysis and summary for **valuable** LeetCode problems
 
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
+![Contributors](https://img.shields.io/github/contributors/TianQ20/Crack-LeetCode)
 ![GitHub issues](https://img.shields.io/github/issues/TianQ20/Crack-LeetCode)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/TianQ20/Crack-LeetCode)
 ![Last commit](https://img.shields.io/github/last-commit/TianQ20/Crack-LeetCode)
