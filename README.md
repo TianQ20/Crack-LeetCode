@@ -1,6 +1,6 @@
 # Crack LeetCode
 
-Provide analysis and summary for **valuable** LeetCode problems
+Provide analysis and summary for **Valuable** LeetCode problems
 
 ![MIT license](https://img.shields.io/badge/License-MIT-green.svg)
 ![Contributors](https://img.shields.io/github/contributors/TianQ20/Crack-LeetCode)
@@ -11,10 +11,15 @@ Provide analysis and summary for **valuable** LeetCode problems
 
 ![image](https://user-images.githubusercontent.com/54377114/97521222-7cc2b280-1973-11eb-915b-6c07c8d82a07.png)
 
+## Contributing Style
+
+Please check this [template](https://github.com/TianQ20/Crack-LeetCode/blob/main/template.md) before pull request
+
 ## Problems
 
 | Solution | Proficiency | Tags |
 | -------- | -------- | --------
 | [299. Bulls and Cows](https://github.com/TianQ20/Crack-LeetCode/blob/main/AlgoTogether_program/week1/required/299.md) | focus on one pass solution | Array |
-| [849. Maximize Distance to Closest Person](https://leetcode.com/problems/maximize-distance-to-closest-person/) | focus on one pass solution | Array |
-| [1396. Design Underground System](https://leetcode.com/problems/design-underground-system/) | Neat and Efficient Design | System/OOD Design |
+| [849. Maximize Distance to Closest Person](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Array/849.md) | focus on one pass solution | Array |
+| [611. Valid Triangle Number](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Array/611.%20Valid%20Triangle%20Number.md) | O(N^2) | Array |
+| [1396. Design Underground System](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/SystemDesign/1396.%20Design%20Underground%20System.md) | Neat and Efficient Design | System/OOD Design |
