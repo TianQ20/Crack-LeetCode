@@ -25,3 +25,4 @@ Please check this [template](https://github.com/TianQ20/Crack-LeetCode/blob/main
 | [1396. Design Underground System](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/SystemDesign/1396.%20Design%20Underground%20System.md) | Neat and Efficient Design | System/OOD Design |
 | [1102. Path With Maximum Minimum Value](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Graph/1102.%20Path%20With%20Maximum%20Minimum%20Value.md) | Dijkstra | BFS |
 | [1631. Path With Minimum Effort](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Graph/1631.%20Path%20With%20Minimum%20Effort.md) | Dijkstra | BFS |
+| [1209. Remove All Adjacent Duplicates in String II](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/) | Single Stack | Stack & String |
