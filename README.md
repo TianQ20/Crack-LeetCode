@@ -26,4 +26,4 @@ Please check this [template](https://github.com/TianQ20/Crack-LeetCode/blob/main
 | [1102. Path With Maximum Minimum Value](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Graph/1102.%20Path%20With%20Maximum%20Minimum%20Value.md) | Dijkstra | BFS |
 | [1631. Path With Minimum Effort](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Graph/1631.%20Path%20With%20Minimum%20Effort.md) | Dijkstra | BFS |
 | [1209. Remove All Adjacent Duplicates in String II](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/String/1209.%20Remove%20All%20Adjacent%20Duplicates%20in%20String%20II.md) | Single Stack | Stack & String |
-| [99. Recover Binary Search Tree](https://github.com/TianQ20/Crack-LeetCode/tree/main/Questions/Tree) | in-order | Tree |
+| [99. Recover Binary Search Tree](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Tree/99.%20Recover%20Binary%20Search%20Tree.md) | In-Order | Tree |
