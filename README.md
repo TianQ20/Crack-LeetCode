@@ -27,3 +27,5 @@ Please check this [template](https://github.com/TianQ20/Crack-LeetCode/blob/main
 | [1631. Path With Minimum Effort](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Graph/1631.%20Path%20With%20Minimum%20Effort.md) | Dijkstra | BFS |
 | [1209. Remove All Adjacent Duplicates in String II](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/String/1209.%20Remove%20All%20Adjacent%20Duplicates%20in%20String%20II.md) | Single Stack | Stack & String |
 | [99. Recover Binary Search Tree](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Tree/99.%20Recover%20Binary%20Search%20Tree.md) | In-Order | Tree |
+| [723. Candy Crush](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/GameSimulation/723.%20Candy%20Crush.md)| Tricky Design | Game |
+| [445. Add Two Numebrs](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/LinkedList/445.%20Add%20Two%20Numbers%20II.md)| Add Operations | LinkedList/Math |
