@@ -47,8 +47,7 @@ Public class Dijkstra {
 }
 ```
 
-## Similar Questions:
-
+## Similar Questions
 
 | Question | Tags |
 | -------- | -------- |
