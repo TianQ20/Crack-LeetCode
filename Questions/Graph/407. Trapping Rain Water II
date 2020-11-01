@@ -1,0 +1,34 @@
+# 407. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water-ii/)
+
+```Python3
+import heapq
+class Solution:
+    def trapRainWater(self, heightMap: List[List[int]]) -> int:
+        h, w = len(heightMap), len(heightMap[0])
+        if w < 3 or h < 3: return 0
+        
+        # BFS starts from boundary 
+        # each time caculate either update hmax or add to res
+        dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        heap = []
+        for i in range(len(heightMap)):
+            for j in range(len(heightMap[0])):
+                if i == 0 or j == 0 or i == h - 1 or j == w - 1:
+                    heapq.heappush(heap, (heightMap[i][j], i, j))
+                    heightMap[i][j] = -1 # mark as visited
+        res = 0
+        hmax = 0
+        while heap:
+            hei, x, y = heapq.heappop(heap)
+            if hei > hmax: hmax = hei
+            else: res += hmax - hei
+            
+            for x_inc, y_inc in dirs:
+                nei_x, nei_y = x + x_inc, y + y_inc
+                if 0 <= nei_x < h and 0 <= nei_y < w and heightMap[nei_x][nei_y] >= 0:
+                    heapq.heappush(heap, (heightMap[nei_x][nei_y], nei_x, nei_y))
+                    heightMap[nei_x][nei_y] = -1
+        return res
+```
+
+Credit to [leetcode post](https://leetcode.com/problems/trapping-rain-water-ii/discuss/844324/python3-easy-solution) with improvement on visited marks.
