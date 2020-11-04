@@ -30,3 +30,4 @@ Please check this [template](https://github.com/TianQ20/Crack-LeetCode/blob/main
 | [723. Candy Crush](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/GameSimulation/723.%20Candy%20Crush.md)| Tricky Design | Game |
 | [445. Add Two Numebrs](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/LinkedList/445.%20Add%20Two%20Numbers%20II.md)| Add Operations | LinkedList/Math |
 | [662. Maximum Width of Binary Tree](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Tree/662.%20Maximum%20Width%20of%20Binary%20Tree.md)| Level + node index | Tree + BFS/DFS |
+| [310. Minimum Height Trees](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Graph/310.%20Minimum%20Height%20Trees.md)| delete leaves | BFS |
