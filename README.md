@@ -29,4 +29,4 @@ Please check this [template](https://github.com/TianQ20/Crack-LeetCode/blob/main
 | [99. Recover Binary Search Tree](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Tree/99.%20Recover%20Binary%20Search%20Tree.md) | In-Order | Tree |
 | [723. Candy Crush](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/GameSimulation/723.%20Candy%20Crush.md)| Tricky Design | Game |
 | [445. Add Two Numebrs](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/LinkedList/445.%20Add%20Two%20Numbers%20II.md)| Add Operations | LinkedList/Math |
-| [662. Maximum Width of Binary Tree](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Tree/662.%20Maximum%20Width%20of%20Binary%20Tree)| Level + node index | Tree + BFS/DFS |
+| [662. Maximum Width of Binary Tree](https://github.com/TianQ20/Crack-LeetCode/blob/main/Questions/Tree/662.%20Maximum%20Width%20of%20Binary%20Tree.md)| Level + node index | Tree + BFS/DFS |
