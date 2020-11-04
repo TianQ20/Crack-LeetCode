@@ -113,5 +113,44 @@ class Solution {
 follow up: The overall run time complexity should be `O(log (m+n))`.
 
 ```java
+class Solution {
+    public double findMedianSortedArrays(int[] A, int[] B) {
+        int m = A.length, n = B.length;
+        if (m > n) return findMedianSortedArrays(B, A);
 
+        int i = 0, j = 0, imin = 0, imax = m, half_len = (m + n + 1) / 2;
+        double max_left = 0, min_right = 0;
+        while (imin <= imax) {
+            i = (imin + imax) / 2;
+            j = half_len - i;
+            if (j > 0 && i < m && B[j - 1] > A[i]) {
+                imin = i + 1;
+            } else if (i > 0 && j < n && A[i - 1] > B[j]) {
+                imax = i - 1;
+            } else {
+                if (i == 0) {
+                    max_left = (double)B[j - 1];
+                } else if (j == 0) {
+                    max_left = (double)A[i - 1];
+                } else {
+                    max_left = (double)Math.max(A[i - 1], B[j - 1]);
+                }
+                break;
+            }
+        }
+
+        if ((m + n) % 2 == 1) {
+            return max_left;
+        }
+
+        if (i == m) {
+            min_right = (double)B[j];
+        } else if (j == n) {
+            min_right = (double)A[i];
+        } else {
+            min_right = (double)Math.min(A[i], B[j]);
+        }
+        return (double)(max_left + min_right) / 2;
+    }
+}
 ```
