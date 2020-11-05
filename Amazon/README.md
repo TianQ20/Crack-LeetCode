@@ -178,3 +178,31 @@ class Solution {
     }
 }
 ```
+
+[8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/)
+
+```java
+class Solution {
+    public int myAtoi(String s) {
+        s = s.trim();
+        int sign = 1, i = 0, res = 0;
+        if (s.isEmpty()) {
+            return res;
+        } else if (s.charAt(i) == '-') {
+            sign = -1;
+            i++;
+        } else if (s.charAt(i) == '+') {
+            i++;
+        }
+
+        while (i < s.length() && Character.isDigit(s.charAt(i))) {
+            if (res > (Integer.MAX_VALUE - (s.charAt(i) - '0')) / 10) {
+                return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+            res = res * 10 + s.charAt(i) - '0';
+            i++;
+        }
+        return sign * res;
+    }
+}
+```
