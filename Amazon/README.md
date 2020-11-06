@@ -206,3 +206,229 @@ class Solution {
     }
 }
 ```
+
+[12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/)
+
+```java
+class Solution {
+    public String intToRoman(int num) {
+        String[] M = new String[] {"", "M", "MM", "MMM"};
+        String[] C = new String[] {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+        String[] X = new String[] {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+        String[] I = new String[] {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        return M[num / 1000] + C[(num % 1000) / 100] + X[(num % 100) / 10] + I[num % 10];
+    }
+}
+```
+
+```java
+class Solution {
+    public String intToRoman(int num) {
+        if (num < 1 || num > 3999) return "";
+        int[] values = new int[] {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] roman = new String[] {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        int i = 0;
+        StringBuilder res = new StringBuilder();
+        while (num > 0) {
+            while (num >= values[i]) {
+                num -= values[i];
+                res.append(roman[i]);
+            }
+            i++;
+        }
+        return res.toString();
+    }
+}
+```
+
+[13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
+
+```java
+class Solution {
+    public int romanToInt(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+        int len = s.length();
+        int sum = map.get(s.charAt(len - 1));
+        for (int i = len - 2; i >= 0; i--) {
+            if (map.get(s.charAt(i)) < map.get(s.charAt(i + 1))) {
+                sum -= map.get(s.charAt(i));
+            } else sum += map.get(s.charAt(i));
+        }
+        return sum;
+    }
+}
+```
+
+[20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+
+```java
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            if (c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+            }
+            if (c == ')') {
+                if (stack.isEmpty() || stack.pop() != '(') {
+                    return false;
+                }
+            }
+            if (c == ']') {
+                if (stack.isEmpty() || stack.pop() != '[') {
+                    return false;
+                }
+            }
+            if (c == '}') {
+                if (stack.isEmpty() || stack.pop() != '{') {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+}
+```
+
+[21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+
+recursion
+
+```java
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        if (l1.val < l2.val) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoLists(l1, l2.next);
+            return l2;
+        }
+    }
+}
+```
+
+iteration
+
+```java
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        ListNode dummy = new ListNode(-1);
+        ListNode tail = dummy;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                tail.next = l1;
+                l1 = l1.next;
+            } else {
+                tail.next = l2;
+                l2 = l2.next;
+            }
+            tail = tail.next;
+        }
+        if (l1 != null) {
+            tail.next = l1;
+        }
+        if (l2 != null) {
+            tail.next = l2;
+        }
+        return dummy.next;
+    }
+}
+```
+
+[23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
+
+using priority queue, every time we compare the head node value of each list.
+
+```java
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+        // sort by value in ascending order
+        PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b) -> Integer.compare(a.val, b.val));
+        ListNode dummy = new ListNode(-1);
+        ListNode tail = dummy;
+        for (ListNode node : lists) {
+            if (node != null) {
+                pq.add(node);
+            }
+        }
+
+        while (!pq.isEmpty()) {
+            tail.next = pq.poll();
+            tail = tail.next;
+            if (tail.next != null) {
+                pq.add(tail.next);
+            }
+        }
+        return dummy.next;
+    }
+}
+```
+
+reusing merge two sorted list solution
+
+the progress of combination is like a full binary tree, from bottom to top. So on every level of tree, the combination complexity is n, beacause every level have all n numbers without repetition. The level of tree is x, ie logk. So the complexity is O(nlogk).
+
+```java
+for example, 8 ListNode, and the length of every ListNode is x1, x2,
+x3, x4, x5, x6, x7, x8, total is n.
+
+on level 3: x1+x2, x3+x4, x5+x6, x7+x8 sum: n
+
+on level 2: x1+x2+x3+x4, x5+x6+x7+x8 sum: n
+
+on level 1: x1+x2+x3+x4+x5+x6+x7+x8 sum: n
+
+total 3n, nlog8
+```
+
+```java
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null || lists.length == 0) return null;
+        if (lists.length == 1) return lists[0];
+        if (lists.length == 2) return mergeTwoLists(lists[0], lists[1]);
+        ListNode[] left = Arrays.copyOfRange(lists, 0, lists.length / 2);
+        ListNode[] right = Arrays.copyOfRange(lists, lists.length / 2, lists.length);
+        return mergeTwoLists(mergeKLists(left), mergeKLists(right));
+    }
+
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        ListNode dummy = new ListNode(-1);
+        ListNode tail = dummy;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                tail.next = l1;
+                l1 = l1.next;
+            } else {
+                tail.next = l2;
+                l2 = l2.next;
+            }
+            tail = tail.next;
+        }
+        if (l1 != null) {
+            tail.next = l1;
+        }
+        if (l2 != null) {
+            tail.next = l2;
+        }
+        return dummy.next;
+    }
+}
+```
+
+credit to [leetcode post wksora comment](https://leetcode.com/problems/merge-k-sorted-lists/discuss/10528/A-java-solution-based-on-Priority-Queue)
