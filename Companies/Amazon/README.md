@@ -62,6 +62,73 @@ class Solution {
 }
 ```
 
+similar question: [1099. Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/)
+
+two pointers
+
+```java
+class Solution {
+    public int twoSumLessThanK(int[] A, int K) {
+        Arrays.sort(A);
+        List<Integer> list = new ArrayList<>();
+        int lo = 0, hi = A.length - 1;
+        while (lo < hi) {
+            int sum = A[lo] + A[hi];
+            if (sum >= K) {
+                hi--;
+            } else if (sum < K) {
+                lo++;
+                list.add(sum);
+            }
+        }
+        if (list.size() == 0) {
+            return -1;
+        }
+        int max = 0;
+        for (int i : list) {
+            max = Math.max(max, i);
+        }
+        return max;
+    }
+}
+```
+
+binary search
+
+```java
+class Solution {
+    public int twoSumLessThanK(int[] A, int K) {
+        Arrays.sort(A);
+        int ans = Integer.MAX_VALUE;
+        for (int i = 0; i < A.length - 1; i++) {
+            if (K > 2 * A[i]) {
+                int another = binarySearch(A, K - A[i], i + 1);
+                if (A[i] + another < K && A[i] != another) {
+                    ans = Math.min(ans, K - A[i] - another);
+                }
+            }
+        }
+        return ans == Integer.MAX_VALUE ? -1 : K - ans;
+    }
+
+    private int binarySearch(int[] A, int target, int idx) {
+        int lo = idx, hi = A.length - 1;
+        if (lo == hi) return A[lo];
+        while (lo < hi) {
+            int m = lo + (hi - lo) / 2;
+            if (A[m] == target) {
+                return A[m];
+            } else if (A[m] > target) {
+                hi = m - 1;
+            } else {
+                lo = m + 1;
+            }
+        }
+        return A[lo] <= target ? A[lo] : A[lo - 1];
+    }
+}
+```
+
 [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 
 naive solution: `O((m+n)log (m+n))` time, cause we use sort
