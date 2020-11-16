@@ -103,6 +103,73 @@ class Solution {
 }
 ```
 
+[1272. Remove Interval](https://leetcode.com/problems/remove-interval/)
+
+Naive solution, covered all 6 situations.
+
+```java
+class Solution {
+    public List<List<Integer>> removeInterval(int[][] intervals, int[] toBeRemoved) {
+        List<List<Integer>> res = new ArrayList<>();
+        for (int[] interval : intervals) {
+            if (interval[1] < toBeRemoved[0] || interval[0] > toBeRemoved[1]) { // no overlap
+                List<Integer> tmpList = new ArrayList<>();
+                tmpList.add(interval[0]);
+                tmpList.add(interval[1]);
+                res.add(tmpList);
+            } else if (interval[0] >= toBeRemoved[0] && interval[1] <= toBeRemoved[1]) { // fully overlap
+                continue;
+            } else if (interval[0] < toBeRemoved[0] && interval[1] > toBeRemoved[0] && interval[1] <= toBeRemoved[1]) { // right overlap
+                interval[1] = Math.min(interval[1], toBeRemoved[0]);
+                List<Integer> tmpList = new ArrayList<>();
+                tmpList.add(interval[0]);
+                tmpList.add(interval[1]);
+                res.add(tmpList);
+            } else if (interval[0] >= toBeRemoved[0] && interval[0] < toBeRemoved[1] && interval[1] > toBeRemoved[1]) { // left overlap
+                interval[0] = Math.max(interval[0], toBeRemoved[1]);
+                List<Integer> tmpList = new ArrayList<>();
+                tmpList.add(interval[0]);
+                tmpList.add(interval[1]);
+                res.add(tmpList);
+            } else { // in the middle
+                List<Integer> tmpList1 = new ArrayList<>();
+                List<Integer> tmpList2 = new ArrayList<>();
+                tmpList1.add(interval[0]);
+                tmpList1.add(toBeRemoved[0]);
+                tmpList2.add(toBeRemoved[1]);
+                tmpList2.add(interval[1]);
+                res.add(tmpList1);
+                res.add(tmpList2);
+            }
+        }
+        return res;
+    }
+}
+```
+
+Optimization: we only need to consider the begin and end of each interval
+
+```java
+class Solution {
+    public List<List<Integer>> removeInterval(int[][] intervals, int[] toBeRemoved) {
+        List<List<Integer>> res = new ArrayList<>();
+        for (int[] i : intervals) {
+            if (i[0] >= toBeRemoved[1] || i[1] <= toBeRemoved[0]) {
+                res.add(Arrays.asList(i[0], i[1]));
+            } else { // i[1] >= toBeRemoved[0] && i[0] <= toBeRemoved[1]
+                if (i[0] < toBeRemoved[0]) {
+                    res.add(Arrays.asList(i[0], toBeRemoved[0]));
+                }
+                if (i[1] > toBeRemoved[1]) {
+                    res.add(Arrays.asList(toBeRemoved[1], i[1]));
+                }
+            }
+        }
+        return res;
+    }
+}
+```
+
 [253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
 
 ```java
