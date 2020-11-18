@@ -8,11 +8,11 @@ class At_Most_K_or_K_distinct_characters:
         chars = {} # using map to store char's frequency
         for right in range(len(s)):
             temp = s[right]
-            chars[s[right]]+=1
+            chars[temp] = chars.get(temp,0)+1
             while len(chars) > k: # more than k distinct chars
                 chars[s[left]]-=1 # remove from left
                 if chars[s[left]] == 0:
-                    chars.remove(s[left])
+                    del chars[[left]]
                 left+=1
             res = max(res, right - left + 1) # update res
         return res
