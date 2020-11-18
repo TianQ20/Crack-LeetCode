@@ -12,7 +12,7 @@ class At_Most_K_or_K_distinct_characters:
             while len(chars) > k: # more than k distinct chars
                 chars[s[left]]-=1 # remove from left
                 if chars[s[left]] == 0:
-                    del chars[[left]]
+                    del chars[s[left]]
                 left+=1
             res = max(res, right - left + 1) # update res
         return res
